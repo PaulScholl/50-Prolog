@@ -73,3 +73,7 @@ group([N|Ns], Es, [G|Gs]) :-
     combination(N, Es, G),            % Selecciona una combinación de tamaño N de Es.
     subtract(Es, G, Rest),            % Elimina la combinación seleccionada de Es.
     group(Ns, Rest, Gs).              % Llama recursivamente para los otros tamaños.
+
+% Prueba de agrupamiento
+% Ejemplo de uso:
+% ?- group([2, 1], [a, b, c, d], Groups).
