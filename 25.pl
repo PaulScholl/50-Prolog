@@ -24,33 +24,26 @@
 %     }
 % }
 
-% Genera una lista con todos los enteros dentro de un rango dado.
-% Caso base: cuando el inicio y el final son iguales.
-range(I, I, [I]).
-% Caso recursivo: agrega el inicio a la lista y continúa con el siguiente número.
-range(I, K, [I|R]) :- I < K, I1 is I + 1, range(I1, K, R).
-
-% Extrae un número dado de elementos aleatorios de una lista.
-% Caso base: seleccionar 0 elementos resulta en una lista vacía.
-rnd_select(_, 0, []).
-
-% Caso recursivo: selecciona un elemento aleatorio de la lista y llama recursivamente.
-rnd_select(L, N, [X|R]) :- 
-    length(L, Len), 
-    Len > 0,                       % Asegúrate de que la lista no esté vacía.
-    random(1, Len, I), 
-    element_at(X, L, I),           % Obtiene el elemento en la posición I.
-    delete(L, X, L1),              % Elimina el elemento seleccionado de la lista.
-    N1 is N - 1,                   % Decrementa el contador de elementos restantes.
-    rnd_select(L1, N1, R).          % Llama recursivamente con la lista reducida.
-
-% Extrae el elemento en la posición I de la lista L.
-element_at(X, [X|_], 1).                    % Caso base: el primer elemento es el que buscamos.
-element_at(X, [_|T], I) :-                    % Caso recursivo: busca en la cola.
-    I > 1, 
-    I1 is I - 1, 
-    element_at(X, T, I1).
 
 % Genera una permutación aleatoria de los elementos de una lista.
 % Utiliza la selección aleatoria para construir la permutación.
+
+% rnd_permu(+List, -Perm)
 rnd_permu(L, P) :- length(L, Len), rnd_select(L, Len, P).
+
+% rnd_select(+List, +N, -Selected)
+% Selecciona N elementos aleatorios de List sin repetición
+rnd_select([], 0, []). % Caso base: seleccionar 0 elementos
+rnd_select(L, N, [X|Rest]) :- 
+    N > 0, 
+    random_member(X, L), % Selecciona un elemento aleatorio
+    delete(L, X, L1), % Elimina el elemento seleccionado de la lista
+    N1 is N - 1, 
+    rnd_select(L1, N1, Rest). % Llama recursivamente para seleccionar el resto
+
+% Para seleccionar un miembro aleatorio de la lista
+random_member(X, List) :- 
+    length(List, Len), 
+    random_between(1, Len, Index), 
+    nth1(Index, List, X). % nth1 para obtener el elemento en la posición Index
+
