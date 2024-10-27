@@ -2,8 +2,9 @@
 
 all: run_all
 
-run_all: run_1	run_2	run_3	run_4	run_5	run_6	run_7	run_8	run_9	run_10	run_11
-
+run_all: 
+	run_1	run_2	run_3	run_4	run_5	run_6	run_7	run_8	run_9	run_10	run_11
+	run_12	run_13	run_14	run_15	run_16	run_17	run_18	run_19	run_20	run_21	run_22
 run_1:
 	@swipl -s ../50-Prolog/1.pl -g "my_last(X,[a, b, c, d]), write('Ultimo elemento: '), write(X), nl, halt."
 run_2:
