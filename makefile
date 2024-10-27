@@ -57,9 +57,9 @@ run_25:
 run_26:
 	@swipl -s ../50-Prolog/26.pl -g "combination(2, [a, b, c], Comb), write(Comb), nl, halt."
 run_27:
-	@swipl -s ../50-Prolog/27.pl -g "group([2, 1], [a, b, c, d], Groups), write(Groups), nl, halt."
+	@swipl -s ../50-Prolog/27.pl -g "group([a, b, c, d, e], [2, 3], Groups), write(Groups), nl, halt."
 run_28:
-	@swipl -s ../50-Prolog/28.pl -g "lsort([[a, b, c], [d], [e, f, g, h], [i, j]], Sorted)., write(Sorted), nl, halt."
+	@swipl -s ../50-Prolog/28.pl -g "lsort([[a, b, c], [d], [e, f, g, h], [i, j]], Sorted), write(Sorted), nl, halt."
 run_29:
 	@swipl -s ../50-Prolog/29.pl -g "length_frequency([[a, b], [c], [d, e, f], [g], [h, i]], F), write(F), nl, halt."
 run_30:
