@@ -38,7 +38,7 @@ run_15:
 run_16:
 	@swipl -s ../50-Prolog/16.pl -g "drop([a, b, c, d, e, f, g, h], 3, R), write(R), nl, halt."
 run_17:
-	@swipl -s ../50-Prolog/17.pl -g "split([a, b, c, d, e, f], 3, L1, L2),wirte('Lista 1: '), write(L1),write(' Lista 2: '),write(L2), nl, halt."
+	@swipl -s ../50-Prolog/17.pl -g "split([a, b, c, d, e, f], 3, L1, L2),write('Lista 1: '), write(L1),write(' Lista 2: '),write(L2), nl, halt."
 run_18:
 	@swipl -s ../50-Prolog/18.pl -g "slice([a, b, c, d, e, f], 2, 3, R), write(R), nl, halt."
 run_19:
