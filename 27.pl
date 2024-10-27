@@ -62,18 +62,25 @@
 %     }
 % }
 
-% Genera combinaciones de K elementos de una lista.
-combination(0, _, []).
-combination(K, [H|T], [H|Comb]) :- K > 0, K1 is K - 1, combination(K1, T, Comb).
-combination(K, [_|T], Comb) :- K > 0, combination(K, T, Comb).
-
 % Agrupa los elementos de un conjunto en subconjuntos disjuntos dados los tamaños de los subgrupos.
-group([], [], []).
-group([N|Ns], Es, [G|Gs]) :- 
-    combination(N, Es, G),            % Selecciona una combinación de tamaño N de Es.
-    subtract(Es, G, Rest),            % Elimina la combinación seleccionada de Es.
-    group(Ns, Rest, Gs).              % Llama recursivamente para los otros tamaños.
+% group(+Elements, +Sizes, -Groups)
+group(_, [], []).  % Si no hay tamaños, no hay grupos.
+group(Es, [N|Ns], [G|Gs]) :- 
+    combination(N, Es, G),            % Genera una combinación G de tamaño N a partir de Es.
+    subtract(Es, G, Rest),            % Elimina G de Es para obtener el resto de los elementos.
+    group(Rest, Ns, Gs).               % Llama recursivamente con los tamaños restantes y los elementos restantes.
 
-% Prueba de agrupamiento
-% Ejemplo de uso:
-% ?- group([2, 1], [a, b, c, d], Groups).
+% combination(+N, +List, -Comb)
+% Genera una combinación de N elementos de List.
+combination(0, _, []).  % Caso base: la combinación de 0 elementos es la lista vacía.
+combination(N, List, [X|Comb]) :- 
+    N > 0, 
+    select(X, List, Rest),   % Selecciona un elemento X de List y obtiene el resto.
+    N1 is N - 1, 
+    combination(N1, Rest, Comb).  % Llama recursivamente para obtener el resto de la combinación.
+
+% select(+Element, +List, -Rest)
+% Elimina un elemento de la lista.
+select(X, [X|Rest], Rest).           % Si X es la cabeza de la lista, el resto es simplemente Rest.
+select(X, [Y|Rest], [Y|NewRest]) :- 
+    select(X, Rest, NewRest).        % Busca en el resto de la lista.
