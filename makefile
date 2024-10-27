@@ -49,7 +49,7 @@ run_21:
 run_22:
 	@swipl -s ../50-Prolog/22.pl -g "range(3, 6, R), write(R), nl, halt."
 run_23:
-	@swipl -s ../50-Prolog/23.pl -g "?- rnd_select([a, b, c, d, e], 3, R), write(R), nl, halt."
+	@swipl -s ../50-Prolog/23.pl -g "rnd_select([a, b, c, d, e], 3, R), write(R), nl, halt."
 run_24:
 	@swipl -s ../50-Prolog/24.pl -g "lotto(5, 49, L), write(L), nl, halt."
 run_25:
