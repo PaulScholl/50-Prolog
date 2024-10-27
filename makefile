@@ -2,9 +2,8 @@
 
 all: run_all
 
-run_all: 
-	run_1	run_2	run_3	run_4	run_5	run_6	run_7	run_8	run_9	run_10	run_11
-	run_12	run_13	run_14	run_15	run_16	run_17	run_18	run_19	run_20	run_21	run_22
+run_all: run_1	run_2	run_3	run_4	run_5	run_6	run_7	run_8	run_9	run_10	run_11	run_12	run_13	run_14	run_15	run_16	run_17	run_18	run_19	run_20	run_21	run_22	run_23	run_24	run_25	run_26	run_27	run_28	run_29	run_30
+	
 run_1:
 	@swipl -s ../50-Prolog/1.pl -g "my_last(X,[a, b, c, d]), write('Ultimo elemento: '), write(X), nl, halt."
 run_2:
@@ -38,7 +37,7 @@ run_15:
 run_16:
 	@swipl -s ../50-Prolog/16.pl -g "drop([a, b, c, d, e, f, g, h], 3, R), write(R), nl, halt."
 run_17:
-	@swipl -s ../50-Prolog/17.pl -g "split([a, b, c, d, e, f], 3, L1, L2),write('Lista 1: '), write(L1),write(' Lista 2: '),write(L2), nl, halt."
+	@swipl -s ../50-Prolog/17.pl -g "split([a, b, c, d, e, f], 3, L1, L2),wirte('Lista 1: '), write(L1),write(" Lista 2: "),write(L2), nl, halt."
 run_18:
 	@swipl -s ../50-Prolog/18.pl -g "slice([a, b, c, d, e, f], 2, 3, R), write(R), nl, halt."
 run_19:
@@ -46,15 +45,25 @@ run_19:
 run_20:
 	@swipl -s ../50-Prolog/20.pl -g "remove_at(X, [a, b, c, d, e], 3, R), write(R), nl, halt."
 run_21:
+	@swipl -s ../50-Prolog/21.pl -g "insert_at(a, [b, c, d], 2, R), write(R), nl, halt."
 run_22:
+	@swipl -s ../50-Prolog/22.pl -g "range(3, 6, R), write(R), nl, halt."
 run_23:
+	@swipl -s ../50-Prolog/23.pl -g "?- rnd_select([a, b, c, d, e], 3, R), write(R), nl, halt."
 run_24:
+	@swipl -s ../50-Prolog/24.pl -g "lotto(5, 49, L), write(L), nl, halt."
 run_25:
+	@swipl -s ../50-Prolog/25.pl -g "rnd_permu([a, b, c, d], P), write(P), nl, halt."
 run_26:
+	@swipl -s ../50-Prolog/26.pl -g "combination(2, [a, b, c], Comb), write(Comb), nl, halt."
 run_27:
+	@swipl -s ../50-Prolog/27.pl -g "group([2, 1], [a, b, c, d], Groups), write(Groups), nl, halt."
 run_28:
+	@swipl -s ../50-Prolog/28.pl -g "lsort([[a, b, c], [d], [e, f, g, h], [i, j]], Sorted)., write(Sorted), nl, halt."
 run_29:
+	@swipl -s ../50-Prolog/29.pl -g "length_frequency([[a, b], [c], [d, e, f], [g], [h, i]], F), write(F), nl, halt."
 run_30:
+	@swipl -s ../50-Prolog/30.pl -g "is_prime(7), nl, halt."
 run_31:
 run_32:
 run_33:
