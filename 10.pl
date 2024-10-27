@@ -50,10 +50,17 @@
 %     }
 % }
 
+% Agrupa duplicados consecutivos en sublistas.
+pack([], []).
+pack([X|Xs], [[X|Ys]|Zs]) :- transfer(X, Xs, Ys, Rest), pack(Rest, Zs).
+
+transfer(X, [], [], []).
+transfer(X, [Y|Ys], [], [Y|Ys]) :- X \= Y.
+transfer(X, [X|Xs], [X|Ys], Rest) :- transfer(X, Xs, Ys, Rest).
+
 % Codifica una lista usando codificación Run-Length.
-% Primero agrupa los duplicados y luego transforma las sublistas en parejas (N, X).
 encode(L, R) :- pack(L, P), transform(P, R).
 
 % Transforma sublistas en parejas (N, X), donde N es la cantidad de elementos.
 transform([], []).
-transform([[X|Xs]|Ys], [[N,X]|Zs]) :- length([X|Xs], N), transform(Ys, Zs).
+transform([[X|Xs]|Ys], [[N, X]|Zs]) :- length([X|Xs], N), transform(Ys, Zs).
