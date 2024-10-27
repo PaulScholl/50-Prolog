@@ -25,7 +25,7 @@
 %    }
 %
 
-% Encuentra el último elemento de una lista.
-% La lista debe tener al menos un elemento.
-my_last(X, [X]).
-my_last(X, [_|T]) :- my_last(X, T).
+% Encuentra el penúltimo elemento de una lista.
+% La lista debe tener al menos dos elementos.
+penultimate(X, [X, _]).
+penultimate(X, [_|T]) :- penultimate(X, T).
