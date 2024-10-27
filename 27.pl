@@ -62,6 +62,14 @@
 %     }
 % }
 
+% Genera combinaciones de K elementos de una lista.
+combination(0, _, []).
+combination(K, [H|T], [H|Comb]) :- K > 0, K1 is K - 1, combination(K1, T, Comb).
+combination(K, [_|T], Comb) :- K > 0, combination(K, T, Comb).
+
 % Agrupa los elementos de un conjunto en subconjuntos disjuntos dados los tamaños de los subgrupos.
 group([], [], []).
-group([N|Ns], Es, [G|Gs]) :- combination(N, Es, G), subtract(Es, G, Rest), group(Ns, Rest, Gs).
+group([N|Ns], Es, [G|Gs]) :- 
+    combination(N, Es, G),            % Selecciona una combinación de tamaño N de Es.
+    subtract(Es, G, Rest),            % Elimina la combinación seleccionada de Es.
+    group(Ns, Rest, Gs).              % Llama recursivamente para los otros tamaños.
