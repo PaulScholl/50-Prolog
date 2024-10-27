@@ -26,6 +26,15 @@
 %     }
 % }
 
+% Invierte una lista usando un acumulador.
+reverse_list(L, R) :- reverse_list(L, [], R).
+
+% Caso base: cuando la lista original está vacía, el acumulador contiene la lista invertida.
+reverse_list([], Acc, Acc).
+
+% Caso recursivo: mueve el elemento de la cabeza al acumulador.
+reverse_list([H|T], Acc, R) :- reverse_list(T, [H|Acc], R).
+
 % Verifica si una lista es un palíndromo.
 % Una lista es un palíndromo si es igual a su inversa.
 palindrome(L) :- reverse_list(L, L).
