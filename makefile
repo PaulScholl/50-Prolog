@@ -27,7 +27,7 @@ run_9:
 run_10:
 	@swipl -s ../50-Prolog/10.pl -g "encode([a, a, b, c, c, c, a, a, d], Result), write(Result), nl, halt."
 run_11:
-	@swipl -s ../50-Prolog/10.pl -g "encode_modified([a, a, b, c, c, c, a, a, d], Result), write(Result), nl, halt."
+	@swipl -s ../50-Prolog/11.pl -g "encode_modified([a, a, b, c, c, c, a, a, d], Result), write(Result), nl, halt."
 run_12:
 run_13:
 run_14:
