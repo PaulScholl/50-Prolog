@@ -21,7 +21,7 @@ run_6:
 run_7:
 	@swipl -s ../50-Prolog/7.pl -g "my_flatten([1, [2, [3, 4], 5], [6, 7]], Flat), write(Flat), nl, halt."
 run_8:
-	@swipl -s ../50-Prolog/8.pl -g "compress([a, a, b, c, c, c, a, a, d], Result), wirte(Result), nl, halt."
+	@swipl -s ../50-Prolog/8.pl -g "compress([a, a, b, c, c, c, a, a, d], Result), write(Result), nl, halt."
 run_9:
 	@swipl -s ../50-Prolog/9.pl -g "pack([a, a, b, c, c, c, a, a, d], Result), write(Result), nl, halt."
 run_10:
