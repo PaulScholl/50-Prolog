@@ -45,5 +45,23 @@
 %     }
 % }
 
+% Codifica la frecuencia de elementos consecutivos en una lista de pares.
+encode([], []).
+encode([(K, _)|T], [count(K, N)|R]) :-
+    count(K, T, N, NewT),  % Cuenta cuántas veces K aparece y devuelve el resto de la lista.
+    encode(NewT, R).
+
+% Cuenta las ocurrencias de un elemento en una lista.
+count(_, [], 0, []).
+count(K, [(K, _)|T], N, R) :- 
+    count(K, T, N1, R), 
+    N is N1 + 1.  % Incrementa el contador.
+count(K, [H|T], N, [H|R]) :- 
+    H \= (K, _), 
+    count(K, T, N, R).  % Continúa sin contar el elemento.
+
 % Ordena una lista de listas de acuerdo con la frecuencia de la longitud de las sublistas.
-length_frequency(L, F) :- map_list_to_pairs(length, L, P), msort(P, SP), encode(SP, F).
+length_frequency(L, F) :- 
+    map_list_to_pairs(length, L, P),
+    msort(P, SP),
+    encode(SP, F).
