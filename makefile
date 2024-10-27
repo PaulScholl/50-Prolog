@@ -6,10 +6,8 @@ run_all: run_1	run_2	run_3	run_4	run_5	run_6	run_7	run_8	run_9	run_10	run_11
 
 run_1:
 	@swipl -s ../50-Prolog/1.pl -g "my_last(X,[a, b, c, d]), write('Ultimo elemento: '), write(X), nl, halt."
-
 run_2:
 	@swipl -s ../50-Prolog/2.pl -g "penultimate(X,[a, b, c, d]), write('Penultimo elemento: '), write(X), nl, halt."
-
 run_3:
 	@swipl -s ../50-Prolog/3.pl -g "element_at(X,[a, b, c, d,e,f,g,h,j,k],6), write('Elemento buscado: '), write(X), nl, halt."
 run_4:
@@ -29,14 +27,23 @@ run_10:
 run_11:
 	@swipl -s ../50-Prolog/11.pl -g "encode_modified([a, a, b, c, c, c, a, a, d], Result), write(Result), nl, halt."
 run_12:
+	@swipl -s ../50-Prolog/12.pl -g "decode([[3, a], [2, b], [1, c]], R), write(R), nl, halt."
 run_13:
+	@swipl -s ../50-Prolog/13.pl -g "encode_direct([a, a, a, b, b, c, c, c, c, d], R), write(R), nl, halt."
 run_14:
+	@swipl -s ../50-Prolog/14.pl -g "dupli([a, b, c], R), write(R), nl, halt."
 run_15:
+	@swipl -s ../50-Prolog/15.pl -g "dupli([a, b, c], 3, R), write(R), nl, halt."
 run_16:
+	@swipl -s ../50-Prolog/16.pl -g "drop([a, b, c, d, e, f, g, h], 3, R), write(R), nl, halt."
 run_17:
+	@swipl -s ../50-Prolog/17.pl -g "split([a, b, c, d, e, f], 3, L1, L2),wirte('Lista 1: '), write(L1),write(" Lista 2: "),write(L2), nl, halt."
 run_18:
+	@swipl -s ../50-Prolog/18.pl -g "slice([a, b, c, d, e, f], 2, 3, R), write(R), nl, halt."
 run_19:
+	@swipl -s ../50-Prolog/19.pl -g "rotate([a, b, c, d, e], 2, R), write(R), nl, halt."
 run_20:
+	@swipl -s ../50-Prolog/20.pl -g "remove_at(X, [a, b, c, d, e], 3, R), write(R), nl, halt."
 run_21:
 run_22:
 run_23:
