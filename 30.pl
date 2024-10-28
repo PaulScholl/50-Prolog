@@ -2,7 +2,7 @@
 %  Programa: 30.pl
 %  Autor: Alan Paul Rodriguez Gallardo
 %  Fecha: 23 de Octubre de 2024
-%  Objetivo: Generar una permutacion aleatoria en los elementos de una lista
+%  Objetivo: Verificar si un numero es primo o no
 %   
 % -------------------------------------------------------------------
 
