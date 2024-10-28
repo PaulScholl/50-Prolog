@@ -44,4 +44,4 @@ compare_totient(N) :-
     totient(N, Phi1), 
     totient_improved(N, Phi2), 
     write('Phi (método básico): '), write(Phi1), nl, 
-    write('Phi (método mejorado): 
+    write('Phi (método mejorado): '), write(Phi2), nl.
