@@ -1,3 +1,86 @@
+% -------------------------------------------------------------------
+%  Programa: 39.pl
+%  Autor: Alan Paul Rodriguez Gallardo
+%  Fecha: 27 de Octubre de 2024
+%  Objetivo: Conjetura de Goldbach.
+%   
+% -------------------------------------------------------------------
+
+%using System;
+%using System.Collections.Generic;
+%
+%class Program
+%{
+%    static void Main()
+%    {
+%        Console.WriteLine("Ingrese un límite superior para verificar la conjetura de Goldbach (número par mayor que 2):");
+%        int limiteSuperior = Convert.ToInt32(Console.ReadLine());
+%
+%        if (limiteSuperior <= 2 || limiteSuperior % 2 != 0)
+%        {
+%            Console.WriteLine("El límite debe ser un número par mayor que 2.");
+%            return;
+%        }
+%
+%        List<int> primos = ObtenerPrimosHasta(limiteSuperior);
+%        VerificarConjeturaGoldbach(limiteSuperior, primos);
+%    }
+%
+%    static List<int> ObtenerPrimosHasta(int limite)
+%    {
+%        bool[] esPrimo = new bool[limite + 1];
+%        for (int i = 2; i <= limite; i++)
+%        {
+%            esPrimo[i] = true;
+%        }
+%
+%        for (int p = 2; p * p <= limite; p++)
+%        {
+%            if (esPrimo[p])
+%            {
+%                for (int k = p * p; k <= limite; k += p)
+%                {
+%                    esPrimo[k] = false;
+%                }
+%            }
+%        }
+%
+%        List<int> primos = new List<int>();
+%        for (int i = 2; i <= limite; i++)
+%        {
+%            if (esPrimo[i])
+%            {
+%                primos.Add(i);
+%            }
+%        }
+%
+%        return primos;
+%    }
+%
+%    static void VerificarConjeturaGoldbach(int limite, List<int> primos)
+%    {
+%        for (int n = 4; n <= limite; n += 2)
+%        {
+%            bool encontrado = false;
+%            foreach (int p in primos)
+%            {
+%                if (p > n) break;
+%                if (primos.Contains(n - p))
+%                {
+%                    encontrado = true;
+%                    Console.WriteLine($"{n} = {p} + {n - p}");
+%                    break;
+%                }
+%            }
+%
+%            if (!encontrado)
+%            {
+%                Console.WriteLine($"No se encontró representación para {n}.");
+%            }
+%        }
+%    }
+%}
+
 % Define el predicado principal is_prime/1
 is_prime(N) :-
     N > 1,                % Debe ser mayor que 1
