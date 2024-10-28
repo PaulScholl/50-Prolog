@@ -1,3 +1,42 @@
+% -------------------------------------------------------------------
+%  Programa: 37.pl
+%  Autor: Alan Paul Rodriguez Gallardo
+%  Fecha: 27 de Octubre de 2024
+%  Objetivo: Comparar dos métodos para calcular la función totiente de Euler.
+%   
+% -------------------------------------------------------------------
+
+%static int CalcularTotienteConMultiples(int m)
+%{
+%    bool[] esCoprimo = new bool[m + 1];
+%    for (int i = 1; i <= m; i++)
+%    {
+%        esCoprimo[i] = true;
+%    }
+%
+%    for (int p = 2; p <= m; p++)
+%    {
+%        if (esCoprimo[p])
+%        {
+%            for (int k = p; k <= m; k += p)
+%            {
+%                esCoprimo[k] = false;
+%            }
+%        }
+%    }
+%
+%    int contador = 0;
+%    for (int i = 1; i <= m; i++)
+%    {
+%        if (esCoprimo[i])
+%        {
+%            contador++;
+%        }
+%    }
+%
+%    return contador;
+%}
+
 % Cálculo de la función totiente de Euler para N.
 
 % Calcula el máximo común divisor usando el algoritmo de Euclides.
