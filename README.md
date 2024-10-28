@@ -13,4 +13,4 @@
 42 </br>
 50 </br>
 
-*Los programas que regresaban algún valor boolean tampoco se desplegaba que valor*
+*Los programas que regresaban algún valor boolean tampoco se desplegaba el valor resultante.*
