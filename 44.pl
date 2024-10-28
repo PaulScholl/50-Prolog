@@ -1,3 +1,138 @@
+% -------------------------------------------------------------------
+%  Programa: 44.pl
+%  Autor: Alan Paul Rodriguez Gallardo
+%  Fecha: 27 de Octubre de 2024
+%  Objetivo: Código Huffman.
+%   
+% -------------------------------------------------------------------
+
+%using System;
+%using System.Collections.Generic;
+%using System.Linq;
+%
+%class Program
+%{
+%    static void Main()
+%    {
+%        Console.WriteLine("Ingrese la cadena para codificar usando Huffman:");
+%        string input = Console.ReadLine();
+%        
+%        var huffman = new HuffmanCoding();
+%        var huffmanCodes = huffman.BuildHuffmanTree(input);
+%
+%        Console.WriteLine("Códigos Huffman:");
+%        foreach (var code in huffmanCodes)
+%        {
+%            Console.WriteLine($"{code.Key}: {code.Value}");
+%        }
+%
+%        string encoded = huffman.Encode(input, huffmanCodes);
+%        Console.WriteLine($"Texto codificado: {encoded}");
+%
+%        string decoded = huffman.Decode(encoded);
+%        Console.WriteLine($"Texto decodificado: {decoded}");
+%    }
+%}
+%
+%public class HuffmanCoding
+%{
+%    private class Node
+%    {
+%        public char Character { get; set; }
+%        public int Frequency { get; set; }
+%        public Node Left { get; set; }
+%        public Node Right { get; set; }
+%
+%        public Node(char character, int frequency)
+%        {
+%            Character = character;
+%            Frequency = frequency;
+%        }
+%    }
+%
+%    private List<Node> nodes = new List<Node>();
+%
+%    public Dictionary<char, string> BuildHuffmanTree(string input)
+%    {
+%        // Contar frecuencias de cada carácter
+%        var frequencies = input.GroupBy(c => c)
+%                               .Select(g => new Node(g.Key, g.Count()))
+%                               .ToList();
+%
+%        nodes.AddRange(frequencies);
+%
+%        // Construir el árbol de Huffman
+%        while (nodes.Count > 1)
+%        {
+%            // Ordenar los nodos por frecuencia
+%            nodes = nodes.OrderBy(n => n.Frequency).ToList();
+%
+%            // Tomar los dos nodos con menor frecuencia
+%            var left = nodes[0];
+%            var right = nodes[1];
+%
+%            // Crear un nuevo nodo con estos dos nodos como hijos
+%            var parent = new Node('\0', left.Frequency + right.Frequency)
+%            {
+%                Left = left,
+%                Right = right
+%            };
+%
+%            // Reemplazar los nodos en la lista
+%            nodes.Remove(left);
+%            nodes.Remove(right);
+%            nodes.Add(parent);
+%        }
+%
+%        // Obtener el nodo raíz
+%        var root = nodes.First();
+%        var codes = new Dictionary<char, string>();
+%        GenerateCodes(root, "", codes);
+%
+%        return codes;
+%    }
+%
+%    private void GenerateCodes(Node node, string code, Dictionary<char, string> codes)
+%    {
+%        if (node.Left == null && node.Right == null)
+%        {
+%            codes[node.Character] = code;
+%            return;
+%        }
+%
+%        if (node.Left != null)
+%            GenerateCodes(node.Left, code + "0", codes);
+%
+%        if (node.Right != null)
+%            GenerateCodes(node.Right, code + "1", codes);
+%    }
+%
+%    public string Encode(string input, Dictionary<char, string> codes)
+%    {
+%        return string.Concat(input.Select(c => codes[c]));
+%    }
+%
+%    public string Decode(string encoded)
+%    {
+%        var current = new Node();
+%        var decoded = "";
+%        var currentNode = current;
+%
+%        foreach (var bit in encoded)
+%        {
+%            currentNode = (bit == '0') ? currentNode.Left : currentNode.Right;
+%
+%            if (currentNode.Left == null && currentNode.Right == null) // Nodo hoja
+%            {
+%                decoded += currentNode.Character;
+%                currentNode = current; // Regresar al nodo raíz
+%            }
+%        }
+%
+%        return decoded;
+%    }
+}
+
 % Importante: representa cada símbolo y su frecuencia como fr(Simbolo, Frecuencia)
 % por ejemplo, fr(a, 5).
 
