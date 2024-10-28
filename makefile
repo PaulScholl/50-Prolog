@@ -65,25 +65,45 @@ run_29:
 run_30:
 	@swipl -s ../50-Prolog/30.pl -g "is_prime(7), nl, halt."
 run_31:
+	@swipl -s ../50-Prolog/31.pl -g "gcd(48, 18, G), write(G), nl, halt."
 run_32:
+	@swipl -s ../50-Prolog/32.pl -g "coprime(14, 15), nl, halt."
 run_33:
+	@swipl -s ../50-Prolog/33.pl -g "totient(12, Phi), write(Phi), nl, halt."
 run_34:
+	@swipl -s ../50-Prolog/34.pl -g "prime_factors(60, L), write(L), nl, halt."
 run_35:
+	@swipl -s ../50-Prolog/35.pl -g "prime_factors_mult(28, L), write(L), nl, halt."
 run_36:
+	@swipl -s ../50-Prolog/36.pl -g "totient_improved(10, Phi), write(Phi), nl, halt."
 run_37:
+	@swipl -s ../50-Prolog/37.pl -g "?- compare_totient(10), nl, halt."
 run_38:
+	@swipl -s ../50-Prolog/38.pl -g "?- prime_list(1, 20, Primes), write(Primes), nl, halt."
 run_39:
+	@swipl -s ../50-Prolog/39.pl -g "goldbach(28, [P1, P2]), nl, halt."
 run_40:
+	@swipl -s ../50-Prolog/40.pl -g "goldbach_list(4, 20, L), write(L), nl, halt."
 run_41:
+	@swipl -s ../50-Prolog/41.pl -g "table(A, B, (A, B)), nl, halt."
 run_42:
+	@swipl -s ../50-Prolog/42.pl -g "table(A, B, and(A, B)), nl, halt."
 run_43:
+	@swipl -s ../50-Prolog/43.pl -g "gray(3, C), write(C), nl, halt."
 run_44:
+	@swipl -s ../50-Prolog/44.pl -g "huffman([fr(a, 5), fr(b, 9), fr(c, 12), fr(d, 13), fr(e, 16), fr(f, 45)], Hs), nl, halt."
 run_45:
+	@swipl -s ../50-Prolog/45.pl -g "istree(t(1, t(2, nil, nil), t(3, nil, nil))), nl, halt."
 run_46:
+	@swipl -s ../50-Prolog/46.pl -g "cbal_tree(7, T), nl, halt."
 run_47:
+	@swipl -s ../50-Prolog/47.pl -g "symmetric(t('x', t('x', nil, nil), t('x', nil, nil))), nl, halt."
 run_48:
+	@swipl -s ../50-Prolog/48.pl -g "construct([3, 1, 4, 1, 5, 9, 2, 6, 5], T), nl, halt."
 run_49:
+	@swipl -s ../50-Prolog/49.pl -g "sym_cbal_trees(4, Trees), nl, halt."
 run_50:
+	@swipl -s ../50-Prolog/50.pl -g "hbal_tree(3, T), nl, halt."
 
 # ... Repite para los demás programas hasta run_programa10
 
