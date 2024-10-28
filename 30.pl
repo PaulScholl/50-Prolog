@@ -45,11 +45,20 @@
 %     }
 % }
 
-% Verifica si un número entero dado es primo.
-is_prime(2).
-is_prime(3).
-is_prime(P) :- P > 3, P mod 2 =\= 0, \\+ has_factor(P, 3).
+% Define el predicado principal is_prime/1
+is_prime(N) :-
+    N > 1,                % Debe ser mayor que 1
+    \+ has_divisor(N, 2). % No debe tener divisores entre 2 y la raíz cuadrada de N.
 
-% Verifica si un número tiene factores.
-has_factor(N, L) :- N mod L =:= 0.
-has_factor(N, L) :- L * L < N, L2 is L + 2, has_factor(N, L2).
+% Verifica si hay un divisor de N entre D y la raíz cuadrada de N.
+has_divisor(N, D) :-
+    D * D =< N,           % Solo comprobar hasta la raíz cuadrada de N
+    (   N mod D =:= 0     % Si N es divisible por D
+    ;   D2 is D + 1,      % Incrementa D
+        has_divisor(N, D2) % Llama recursivamente
+    ).
+
+% Ejemplo de uso:
+% ?- is_prime(7).  % Debería retornar true.
+% ?- is_prime(10). % Debería retornar false.
+
