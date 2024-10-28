@@ -77,9 +77,9 @@ run_35:
 run_36:
 	@swipl -s ../50-Prolog/36.pl -g "totient_improved(10, Phi), write(Phi), nl, halt."
 run_37:
-	@swipl -s ../50-Prolog/37.pl -g "?- compare_totient(10), nl, halt."
+	@swipl -s ../50-Prolog/37.pl -g "compare_totient(10), nl, halt."
 run_38:
-	@swipl -s ../50-Prolog/38.pl -g "?- prime_list(1, 20, Primes), write(Primes), nl, halt."
+	@swipl -s ../50-Prolog/38.pl -g "prime_list(1, 20, Primes), write(Primes), nl, halt."
 run_39:
 	@swipl -s ../50-Prolog/39.pl -g "goldbach(28, [P1, P2]), nl, halt."
 run_40:
