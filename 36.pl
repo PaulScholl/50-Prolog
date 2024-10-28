@@ -1,3 +1,60 @@
+% -------------------------------------------------------------------
+%  Programa: 36.pl
+%  Autor: Alan Paul Rodriguez Gallardo
+%  Fecha: 27 de Octubre de 2024
+%  Objetivo: Calcular la función totiente de Euler phi(m) mejorada.
+%   
+% -------------------------------------------------------------------
+
+%using System;
+%using System.Collections.Generic;
+%
+%class Program
+%{
+%    static void Main()
+%    {
+%        Console.WriteLine("Ingrese un número entero positivo (m):");
+%        int m = Convert.ToInt32(Console.ReadLine());
+%
+%        if (m <= 0)
+%        {
+%            Console.WriteLine("El número debe ser positivo.");
+%            return;
+%        }
+%
+%        int resultado = CalcularTotienteEuler(m);
+%        Console.WriteLine($"La función totiente de Euler φ({m}) es: {resultado}");
+%    }
+%
+%    static int CalcularTotienteEuler(int m)
+%    {
+%        int resultado = m;
+%        int n = m;
+%
+%        // Verificar los factores primos
+%        for (int p = 2; p * p <= n; p++)
+%        {
+%            if (n % p == 0)
+%            {
+%                // Si p es un factor primo, aplicamos la fórmula
+%                while (n % p == 0)
+%                {
+%                    n /= p;
+%                }
+%                resultado -= resultado / p;
+%            }
+%        }
+%
+%        // Si n es un número primo mayor que 1
+%        if (n > 1)
+%        {
+%            resultado -= resultado / n;
+%        }
+%
+%        return resultado;
+%    }
+%}
+
 % Encuentra los factores primos de un número entero positivo.
 prime_factors(N, L) :- N > 1, prime_factors(N, 2, L).
 
